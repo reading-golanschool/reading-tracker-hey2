@@ -3,146 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>נבחרת הקריאה - כיתה ג1'</title>
-    <link rel="stylesheet" href="style.css">
+    <title>נבחרת הקריאה - כיתה ג'1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #6366f1; --bg: #f8fafc; }
+        body { font-family: 'Assistant', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; margin: 0; }
+        .container { background: white; width: 100%; max-width: 450px; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        .header { text-align: center; margin-bottom: 2rem; }
+        .header h1 { color: #1e293b; font-size: 1.8rem; margin: 0; }
+        .form-group { margin-bottom: 1.2rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 700; color: #475569; }
+        input, select { width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; box-sizing: border-box; }
+        button { width: 100%; padding: 14px; background: var(--primary); color: white; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #4f46e5; transform: translateY(-2px); }
+    </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header Section -->
-        <header class="header">
-            <div class="logo">🧠💪</div>
-            <h1>נבחרת הקריאה של כיתה ג1'</h1>
-            <p class="subtitle">חדר כושר למוח</p>
-        </header>
-
-        <!-- Stats Banner -->
-        <div class="stats-banner">
-            <div class="stat-item">
-                <div class="stat-number" id="totalMinutes">0</div>
-                <div class="stat-label">דקות השבוע</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" id="todayReaders">0</div>
-                <div class="stat-label">אימנו היום</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" id="weeklyGoal">300</div>
-                <div class="stat-label">יעד השבוע</div>
-            </div>
+        <div class="header">
+            <h1>📚 נבחרת הקריאה</h1>
+            <p>כיתה ג'1 - אימון קריאה יומי</p>
         </div>
-
-        <!-- Progress Bar -->
-        <div class="progress-container">
-            <div class="progress-bar" id="progressBar"></div>
-            <div class="progress-text" id="progressText">0%</div>
-        </div>
-
-        <!-- Main Form -->
-        <div class="form-container">
-            <h2>📝 דיווח אימון יומי</h2>
-            <p class="form-description">סימנת את אימון ה-10 דקות היום? מעולה! דווח/י עכשיו!</p>
-
-            <form id="readingForm">
-                <!-- Student Name -->
-                <div class="form-group">
-                    <label for="studentName">🙋‍♂️ מה שמך?</label>
-                    <select id="studentName" name="studentName" required>
-                    <option value="">בחר/י את שמך</option>
-                    <option value="" disabled selected>בחרי את שמך...</option>
-<option value="אביגיל בן אבי">אביגיל בן אבי</option>
-<option value="אדם ברגר">אדם ברגר</option>
-<option value="אופיר זיו">אופיר זיו</option>
-<option value="אופיר כהנים">אופיר כהנים</option>
-<option value="אופיר שמאלוב">אופיר שמאלוב</option>
-<option value="אמילי סנדלר">אמילי סנדלר</option>
-<option value="ארז פריטש-רייף">ארז פריטש-רייף</option>
-<option value="בר רוזן">בר רוזן</option>
-<option value="גיא אליהו">גיא אליהו</option>
-<option value="היילי פלקס">היילי פלקס</option>
-<option value="יהונתן פלד">יהונתן פלד</option>
-<option value="לי ניב">לי ניב</option>
-<option value="ליאור קריבושי">ליאור קריבושי</option>
-<option value="ליה רון">ליה רון</option>
-<option value="מיה טמבור">מיה טמבור</option>
-<option value="מיה פרל">מיה פרל</option>
-<option value="נטע ורון">נטע ורון</option>
-<option value="נינה מירקין">נינה מירקין</option>
-<option value="עידו אביטל">עידו אביטל</option>
-<option value="פלג אילוז הורוביץ">פלג אילוז הורוביץ</option>
-<option value="רוי בר לב">רוי בר לב</option>
-<option value="רוי גינדי לוי">רוי גינדי לוי</option>
-<option value="שחר מאורי">שחר מאורי</option>
-                        <!-- Add all student names here -->
+        <form id="reading-form">
+            <div class="form-group">
+                <label>שם התלמיד/ה</label>
+                <select id="studentName" required>
+                    <option value="">בחרו שם...</option>
                     </select>
-                </div>
-
-                <!-- What did you read -->
-                <div class="form-group">
-                    <label for="readingMaterial">📚 מה קראת היום?</label>
-                    <input type="text" id="readingMaterial" name="readingMaterial" 
-                           placeholder="שם הספר / כתבה / קומיקס" required>
-                </div>
-
-                <!-- How did it feel -->
-                <div class="form-group">
-                    <label>💭 איך הרגשת באימון?</label>
-                    <div class="feeling-options">
-                        <label class="feeling-card">
-                            <input type="radio" name="feeling" value="easy" required>
-                            <div class="feeling-content">
-                                <div class="feeling-emoji">💪</div>
-                                <div class="feeling-text">הלך חלק</div>
-                            </div>
-                        </label>
-                        <label class="feeling-card">
-                            <input type="radio" name="feeling" value="hard" required>
-                            <div class="feeling-content">
-                                <div class="feeling-emoji">😓</div>
-                                <div class="feeling-text">היה קשה</div>
-                            </div>
-                        </label>
-                        <label class="feeling-card">
-                            <input type="radio" name="feeling" value="flow" required>
-                            <div class="feeling-content">
-                                <div class="feeling-emoji">🚀</div>
-                                <div class="feeling-text">הייתי בזרימה!</div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Optional AHA moment -->
-                <div class="form-group">
-                    <label for="ahaмомент">💡 רגע AHA! (אופציונלי)</label>
-                    <textarea id="ahaMoment" name="ahaMoment" 
-                              placeholder="משהו מעניין שקרה בקריאה? דמות שאהבת? רעיון מגניב?"></textarea>
-                </div>
-
-                <!-- Submit Button -->
-                <button type="submit" class="submit-btn" id="submitBtn">
-                    <span class="btn-text">🎯 שלח דיווח ותרום 10 דקות!</span>
-                </button>
-            </form>
-        </div>
-
-        <!-- Success Message -->
-        <div class="success-message" id="successMessage">
-            <div class="success-content">
-                <div class="success-icon">🎉</div>
-                <h2>כל הכבוד!</h2>
-                <p>תרמת <strong>10 דקות</strong> לנבחרת!</p>
-                <p class="success-subtitle">המורה תעדכן את לוח התוצאות בקרוב.</p>
-                <button class="close-btn" onclick="closeSuccessMessage()">סגור</button>
             </div>
-        </div>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>💪 כל אימון מחזק אותנו! 📚</p>
-            <p class="footer-small">נבחרת הקריאה - כיתה ג1'</p>
-        </footer>
+            <div class="form-group">
+                <label>כמה דקות קראת?</label>
+                <input type="number" id="minutes" required min="1">
+            </div>
+            <div class="form-group">
+                <label>שם הספר</label>
+                <input type="text" id="bookName" required>
+            </div>
+            <div class="form-group">
+                <label>איך היה האימון?</label>
+                <select id="feeling">
+                    <option value="מעולה">🤩 מעולה</option>
+                    <option value="נחמד">😊 נחמד</option>
+                    <option value="קצת קשה">😥 קצת קשה</option>
+                </select>
+            </div>
+            <button type="submit">שלח דיווח</button>
+        </form>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
