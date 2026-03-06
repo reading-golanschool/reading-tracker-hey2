@@ -3,68 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>נבחרת הקריאה - כיתה ג'1</title>
+    <title>נבחרת הקריאה של כיתה ג'1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* כאן נמצא כל הסטייל המקורי של כיתה ה' */
-        :root { --primary: #6366f1; --bg: #f8fafc; }
-        body { font-family: 'Assistant', sans-serif; background: #f0f2f5; margin: 0; padding: 20px; direction: rtl; }
-        .container { max-width: 500px; margin: auto; background: white; padding: 25px; border-radius: 20px; shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .progress-container { background: #e2e8f0; border-radius: 10px; height: 20px; margin: 20px 0; position: relative; }
-        .progress-bar { background: var(--primary); height: 100%; border-radius: 10px; width: 0%; transition: width 0.5s; }
-        .success-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 100; justify-content: center; align-items: center; }
-        .success-modal.show { display: flex; }
+        body { font-family: 'Assistant', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+        .card { background: white; border-radius: 24px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); width: 100%; max-width: 450px; padding: 2.5rem; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div style="text-align:center;">
-            <h1>📚 נבחרת הקריאה - ג'1</h1>
-            <p>מתאמנים, מתחזקים ונהנים!</p>
+    <div class="card">
+        <div class="text-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">💪🧠 נבחרת הקריאה ג'1</h1>
+            <p class="text-gray-500 mt-2">חדר כושר למוח</p>
         </div>
 
-        <div class="stats-box">
-            <div>סה"כ דקות השבוע: <span id="totalMinutes">0</span> / <span id="weeklyGoal">1000</span></div>
-            <div class="progress-container"><div id="progressBar" class="progress-bar"></div></div>
-            <div style="text-align:center;" id="progressText">0%</div>
-        </div>
-
-        <form id="readingForm">
-            <div style="margin-bottom:15px;">
-                <label>שם התלמיד/ה:</label>
-                <select id="studentName" required style="width:100%; padding:10px;">
-                    <option value="">בחרו שם...</option>
+        <form id="readingForm" class="space-y-5 text-right">
+            <div>
+                <label class="block font-bold text-gray-700 mb-2">🙋‍♂️ מה שמך?</label>
+                <select id="studentName" required class="w-full border-2 border-gray-100 rounded-xl p-3 focus:border-indigo-500 outline-none transition-all">
+                    <option value="">בחרי את שמך...</option>
                     <option value="אביגיל">אביגיל</option>
                     <option value="מתן">מתן</option>
                     </select>
             </div>
 
-            <div style="margin-bottom:15px;">
-                <label>מה קראת היום? (שם הספר)</label>
-                <input type="text" id="readingMaterial" required style="width:100%; padding:10px;">
+            <div>
+                <label class="block font-bold text-gray-700 mb-2">📚 מה קראת היום?</label>
+                <input type="text" id="readingMaterial" placeholder="שם הספר / כתבה / קומיקס" required class="w-full border-2 border-gray-100 rounded-xl p-3 focus:border-indigo-500 outline-none transition-all">
             </div>
 
-            <div style="margin-bottom:15px;">
-                <label>איך הרגשת באימון?</label><br>
-                <input type="radio" name="feeling" value="מעולה" checked> 😍 מעולה
-                <input type="radio" name="feeling" value="נחמד"> 😊 נחמד
-                <input type="radio" name="feeling" value="קצת קשה"> 😥 קצת קשה
+            <div>
+                <label class="block font-bold text-gray-700 mb-2">💭 איך הרגשת באימון?</label>
+                <div class="flex justify-around bg-gray-50 p-3 rounded-xl">
+                    <label class="cursor-pointer text-center"><input type="radio" name="feeling" value="מעולה" checked class="hidden peer"><span class="block text-2xl grayscale peer-checked:grayscale-0 transition-all">😍</span><span class="text-xs">היה חלק</span></label>
+                    <label class="cursor-pointer text-center"><input type="radio" name="feeling" value="נחמד" class="hidden peer"><span class="block text-2xl grayscale peer-checked:grayscale-0 transition-all">😊</span><span class="text-xs">היה בסדר</span></label>
+                    <label class="cursor-pointer text-center"><input type="radio" name="feeling" value="קשה" class="hidden peer"><span class="block text-2xl grayscale peer-checked:grayscale-0 transition-all">😥</span><span class="text-xs">היה קשה</span></label>
+                </div>
             </div>
 
-            <button type="submit" id="submitBtn" style="width:100%; padding:15px; background:var(--primary); color:white; border:none; border-radius:10px; font-weight:bold;">
+            <button type="submit" id="submitBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl shadow-lg transform active:scale-95 transition-all flex justify-center items-center">
                 🎯 שלח דיווח ותרום 10 דקות!
             </button>
         </form>
     </div>
 
-    <div id="successMessage" class="success-modal">
-        <div style="background:white; padding:30px; border-radius:20px; text-align:center;">
-            <h2>כל הכבוד! 💪</h2>
-            <p>האימון נרשם בהצלחה.</p>
-            <button onclick="closeSuccessMessage()" style="padding:10px 20px;">סגור</button>
-        </div>
-    </div>
+    <script>
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyEJi8Y9QD_8XVqiip2cujEhV6Ue9GySSpekmr_-wYdP_MbgY0LJGfukencB7HDCji-Ag/exec';
 
-    <script src="script.js"></script>
+        document.getElementById('readingForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.innerText = '⏳ שולח...';
+
+            const data = {
+                studentName: document.getElementById('studentName').value,
+                readingMaterial: document.getElementById('readingMaterial').value,
+                feeling: document.querySelector('input[name="feeling"]:checked').value,
+                date: new Date().toLocaleDateString('he-IL'),
+                minutes: 10
+            };
+
+            try {
+                await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
+                alert('כל הכבוד! הדיווח עבר בהצלחה 🌟');
+                this.reset();
+            } catch (error) {
+                alert('אופס, היתה שגיאה. נסי שוב.');
+            } finally {
+                btn.disabled = false;
+                btn.innerText = '🎯 שלח דיווח ותרום 10 דקות!';
+            }
+        });
+    </script>
 </body>
 </html>
