@@ -3,46 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>נבחרת הקריאה של כיתה ג'1</title>
+    <title>נבחרת הקריאה ג'1</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Assistant', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem; }
-        .card { background: white; border-radius: 24px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); width: 100%; max-width: 450px; padding: 2.5rem; }
+        body { font-family: 'Assistant', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem; margin: 0; }
+        .card { background: white; border-radius: 24px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); width: 100%; max-width: 450px; padding: 2rem; }
     </style>
 </head>
 <body>
     <div class="card">
         <div class="text-center mb-6">
-            <h1 class="text-3xl font-bold text-gray-800">💪🧠 נבחרת הקריאה ג'1</h1>
-            <p class="text-gray-500 mt-2">חדר כושר למוח</p>
+            <h1 class="text-3xl font-bold text-gray-800">💪 נבחרת הקריאה ג'1</h1>
+            <p class="text-gray-500 mt-1 text-lg">חדר כושר למוח</p>
         </div>
 
-        <form id="readingForm" class="space-y-5 text-right">
+        <form id="readingForm" class="space-y-4 text-right">
             <div>
-                <label class="block font-bold text-gray-700 mb-2">🙋‍♂️ מה שמך?</label>
-                <select id="studentName" required class="w-full border-2 border-gray-100 rounded-xl p-3 focus:border-indigo-500 outline-none transition-all">
-                    <option value="">בחרי את שמך...</option>
-                    <option value="אביגיל">אביגיל</option>
-                    <option value="מתן">מתן</option>
-                    </select>
+                <label class="block font-bold text-gray-700 mb-1">🙋‍♂️ מי המתאמן/ת?</label>
+                <select id="studentName" required class="w-full border-2 border-gray-100 rounded-xl p-3 focus:border-indigo-500 outline-none">
+                    <option value="">בחרו שם מהרשימה...</option>
+                    <option value="אביגיל בן אבי">אביגיל בן אבי</option><option value="אדם ברגר">אדם ברגר</option>
+                    <option value="אופיר זיו">אופיר זיו</option><option value="אופיר כהנים">אופיר כהנים</option>
+                    <option value="אופיר שמאלוב">אופיר שמאלוב</option><option value="אמילי סנדלר">אמילי סנדלר</option>
+                    <option value="ארז פריטש-רייף">ארז פריטש-רייף</option><option value="בר רוזן">בר רוזן</option>
+                    <option value="גיא אליהו">גיא אליהו</option><option value="היילי פלקסי">היילי פלקסי</option>
+                    <option value="יהונתן פלד">יהונתן פלד</option><option value="לי ניב">לי ניב</option>
+                    <option value="ליאור קריבושי">ליאור קריבושי</option><option value="ליה רון">ליה רון</option>
+                    <option value="מיה טמבור">מיה טמבור</option><option value="מיה פרלן">מיה פרלן</option>
+                    <option value="טע ורון">טע ורון</option><option value="נינה מירקין">נינה מירקין</option>
+                    <option value="עידו אביטל">עידו אביטל</option><option value="פלג אילוז הורוביץ">פלג אילוז הורוביץ</option>
+                    <option value="רוי בר לב">רוי בר לב</option><option value="רוי גינדי לוי">רוי גינדי לוי</option>
+                    <option value="שחר מאורי">שחר מאורי</option>
+                </select>
             </div>
 
             <div>
-                <label class="block font-bold text-gray-700 mb-2">📚 מה קראת היום?</label>
-                <input type="text" id="readingMaterial" placeholder="שם הספר / כתבה / קומיקס" required class="w-full border-2 border-gray-100 rounded-xl p-3 focus:border-indigo-500 outline-none transition-all">
+                <label class="block font-bold text-gray-700 mb-1">📚 מה קראת היום?</label>
+                <input type="text" id="readingMaterial" placeholder="שם הספר" required class="w-full border-2 border-gray-100 rounded-xl p-3 focus:border-indigo-500 outline-none">
             </div>
 
             <div>
-                <label class="block font-bold text-gray-700 mb-2">💭 איך הרגשת באימון?</label>
-                <div class="flex justify-around bg-gray-50 p-3 rounded-xl">
-                    <label class="cursor-pointer text-center"><input type="radio" name="feeling" value="מעולה" checked class="hidden peer"><span class="block text-2xl grayscale peer-checked:grayscale-0 transition-all">😍</span><span class="text-xs">היה חלק</span></label>
-                    <label class="cursor-pointer text-center"><input type="radio" name="feeling" value="נחמד" class="hidden peer"><span class="block text-2xl grayscale peer-checked:grayscale-0 transition-all">😊</span><span class="text-xs">היה בסדר</span></label>
-                    <label class="cursor-pointer text-center"><input type="radio" name="feeling" value="קשה" class="hidden peer"><span class="block text-2xl grayscale peer-checked:grayscale-0 transition-all">😥</span><span class="text-xs">היה קשה</span></label>
+                <label class="block font-bold text-gray-700 mb-1">💭 איך היה האימון?</label>
+                <div class="flex justify-around bg-gray-50 p-2 rounded-xl">
+                    <label class="cursor-pointer text-center"><input type="radio" name="feeling" value="מעולה" checked class="hidden peer"><span class="block text-2xl grayscale peer-checked:grayscale-0">😍</span><span class="text-xs">מעולה</span></label>
+                    <label class="cursor-pointer text-center"><input type="radio" name="feeling" value="נחמד" class="hidden peer"><span class="block text-2xl grayscale peer-checked:grayscale-0">😊</span><span class="text-xs">נחמד</span></label>
+                    <label class="cursor-pointer text-center"><input type="radio" name="feeling" value="קשה" class="hidden peer"><span class="block text-2xl grayscale peer-checked:grayscale-0">😥</span><span class="text-xs">קשה</span></label>
                 </div>
             </div>
 
-            <button type="submit" id="submitBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl shadow-lg transform active:scale-95 transition-all flex justify-center items-center">
+            <button type="submit" id="submitBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl shadow-lg transition-all transform active:scale-95">
                 🎯 שלח דיווח ותרום 10 דקות!
             </button>
         </form>
@@ -50,13 +60,10 @@
 
     <script>
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyEJi8Y9QD_8XVqiip2cujEhV6Ue9GySSpekmr_-wYdP_MbgY0LJGfukencB7HDCji-Ag/exec';
-
         document.getElementById('readingForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
-            btn.disabled = true;
-            btn.innerText = '⏳ שולח...';
-
+            btn.disabled = true; btn.innerText = '⏳ שולח...';
             const data = {
                 studentName: document.getElementById('studentName').value,
                 readingMaterial: document.getElementById('readingMaterial').value,
@@ -64,17 +71,12 @@
                 date: new Date().toLocaleDateString('he-IL'),
                 minutes: 10
             };
-
             try {
                 await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
-                alert('כל הכבוד! הדיווח עבר בהצלחה 🌟');
+                alert('כל הכבוד! הדיווח נרשם בהצלחה 🌟');
                 this.reset();
-            } catch (error) {
-                alert('אופס, היתה שגיאה. נסי שוב.');
-            } finally {
-                btn.disabled = false;
-                btn.innerText = '🎯 שלח דיווח ותרום 10 דקות!';
-            }
+            } catch (error) { alert('אופס, נסי שוב.'); }
+            finally { btn.disabled = false; btn.innerText = '🎯 שלח דיווח ותרום 10 דקות!'; }
         });
     </script>
 </body>
