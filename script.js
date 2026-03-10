@@ -2,8 +2,7 @@
 
 // ===== CONFIGURATION =====
 // Replace this URL with your Google Apps Script Web App URL
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwWKOqo3EyYeNJEd4v_74xy-SZSf6gxBshpXn9NTza7fMkC5SUL71Vm4iKlpXONhos4gg/exec';
-
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxJgTM7PweckPAVffhJicuqjcTIa9L7gwQQ4peF17bGTYvu0NXV_dDQk5GnIIM6dqRNDQ/exec';
 // ===== INITIALIZE =====
 document.addEventListener('DOMContentLoaded', function() {
     loadStats();
